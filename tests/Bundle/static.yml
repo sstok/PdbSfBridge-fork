@@ -1,0 +1,5 @@
+rollerworks_pdb:
+    manager: static
+
+framework:
+    http_client: false

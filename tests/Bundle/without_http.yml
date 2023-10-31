@@ -1,0 +1,4 @@
+#rollerworks_pdb:
+
+framework:
+    http_client: false

@@ -1,0 +1,57 @@
+{
+    "name": "rollerworks/pdb-symfony-bridge",
+    "description": "PHP domain-parser Bridge for Symfony Cache, HTTP Client and FrameworkBundle (optional)",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "php-domain-parser",
+        "pdb",
+        "symfony"
+    ],
+    "authors": [
+        {
+            "name": "Sebastiaan Stok",
+            "email": "s.stok@rollerscapes.net"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "jeremykendall/php-domain-parser": "^6.3",
+        "psr/simple-cache": "^1.0 || ^3.0",
+        "symfony/cache": "^6.3 || ^7.0"
+    },
+    "require-dev": {
+        "matthiasnoback/symfony-dependency-injection-test": "^4.3",
+        "nyholm/symfony-bundle-test": "^2.0",
+        "phpunit/phpunit": "^9.6.13",
+        "rollerscapes/standards": "^1.0",
+        "symfony/console": "^6.3",
+        "symfony/framework-bundle": "^6.3 || ^7.0",
+        "symfony/http-client": "^6.3 || ^7.0",
+        "symfony/phpunit-bridge": "^6.3 || ^7.0"
+    },
+    "conflict": {
+        "symfony/framework-bundle": "<6.0"
+    },
+    "suggest": {
+        "rollerworks/pdb-validator": "PHP domain-parser Constraints for Symfony Validator component"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Rollerworks\\Component\\PdbSfBridge\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rollerworks\\Component\\PdbSfBridge\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

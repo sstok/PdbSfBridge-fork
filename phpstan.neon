@@ -1,0 +1,8 @@
+includes:
+    - vendor/rollerscapes/standards/phpstan.neon
+    #- phpstan-baseline.neon
+
+parameters:
+    paths:
+        - ./src
+        - ./tests
