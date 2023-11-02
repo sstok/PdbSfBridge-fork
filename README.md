@@ -18,8 +18,28 @@ $ php composer.phar require rollerworks/pdb-symfony-bridge
 Now, [Composer][composer] will automatically download all required files,
 and install them for you.
 
-Symfony Flex is assumed to enable the Bundle and add required configuration.
-https://symfony.com/doc/current/bundles.html
+[Symfony Flex][flex] (with contrib) is assumed to enable the Bundle and add
+required configuration. https://symfony.com/doc/current/bundles.html
+
+Otherwise add the following configuration:
+
+<details>
+
+```yaml
+rollerworks_pdb:
+    cache_pool: 'rollerworks.cache.public_prefix_db'
+    #manager: http # either: 'http' (default), 'static' (requires manual updates) or 'mock'
+
+framework:
+    cache:
+        pools:
+            # This name can be changed by setting `rollerworks_pdb.cache_pool` (**Don't reuse an existing cache pool!**)
+            rollerworks.cache.public_prefix_db:
+                adapter: cache.adapter.array # use a persistent adapter that can be easily invalidated like cache.adapter.memcached or cache.adapter.pdo
+                default_lifetime: 604800 # one week, the cache should be automatically refreshed, unless manager=static is used
+```
+
+</details>
 
 ## Requirements
 
@@ -126,10 +146,10 @@ When the HttpClient component is installed _and_ enabled the `HttpUpdatedPdpMana
 is automatically used. When the HttpClient is not available the `StaticPdpManager`
 is used instead.
 
-_To force usage of the static adapter set the `rollerworks_pdb.manager` to `static`._
+_To force usage of the static adapter set configuration `rollerworks_pdb.manager` to `static`._
 
 When the static adapter is enabled you must run `rollerworks-pdb:update` with
-the lists provided as files names. 
+the lists provided as files names.
 
 **And disable expiration of the cache, as otherwise the pre-bundled version
 will be used instead.**
@@ -185,5 +205,6 @@ a pull request, please follow the guidelines in the [Submitting a Patch][patches
 
 [pdb]: https://github.com/jeremykendall/php-domain-parser
 [composer]: https://getcomposer.org/doc/00-intro.md
+[flex]: https://symfony.com/doc/current/setup/flex.html
 [contributing]: https://contributing.rollerscapes.net/
 [patches]: https://contributing.rollerscapes.net/latest/patches.html
