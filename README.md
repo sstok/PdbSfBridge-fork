@@ -5,7 +5,7 @@ This package provides a Symfony specific bridge for the [PHP domain-parser][pdb]
 by Jeremy Kendall and Ignace Nyamagana Butera.
 
 Providing a Cache adapter, HTTP Client adapter, and optional FrameworkBundle
-integration at `\Rollerworks\Component\PdbSfBridge\Bundle\RollerworksPdbSfBundle`.
+integration at `Rollerworks\Component\PdbSfBridge\Bundle\RollerworksPdbBundle`.
 
 ## Installation
 
