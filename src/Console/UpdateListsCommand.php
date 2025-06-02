@@ -77,22 +77,20 @@ final class UpdateListsCommand extends Command
             $filename = getcwd() . \DIRECTORY_SEPARATOR . $filename;
 
             if (! file_exists($filename)) {
-                return throw new \InvalidArgumentException(sprintf('Unable to locate file "%s"', $filename));
+                return throw new \InvalidArgumentException(\sprintf('Unable to locate file "%s"', $filename));
             }
 
             return $filename;
         }
 
         if (! file_exists($filename)) {
-            return throw new \InvalidArgumentException(sprintf('File does not exist at "%s"', $filename));
+            return throw new \InvalidArgumentException(\sprintf('File does not exist at "%s"', $filename));
         }
 
         return $filename;
     }
 
-    /**
-     * @see https://github.com/symfony/symfony/blob/6.4/src/Symfony/Component/Filesystem/Path.php
-     */
+    /** @see https://github.com/symfony/symfony/blob/6.4/src/Symfony/Component/Filesystem/Path.php */
     public static function isAbsolute(string $path): bool
     {
         if ($path === '') {

@@ -21,9 +21,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 final class RollerworksPdbExtension extends ConfigurableExtension
 {
-    /**
-     * @param array<string, mixed> $mergedConfig
-     */
+    /** @param array<string, mixed> $mergedConfig */
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
         $loader = new PhpFileLoader($container, new FileLocator(\dirname(__DIR__) . '/Resources/config'));

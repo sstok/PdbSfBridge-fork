@@ -38,12 +38,11 @@ final readonly class SfStorageFactory implements ResourceUri, PublicSuffixListSt
 {
     public function __construct(
         private CacheInterface $cache,
-        private HttpClientInterface $client
-    ) {}
+        private HttpClientInterface $client,
+    ) {
+    }
 
-    /**
-     * @param mixed $cacheTtl The cache TTL
-     */
+    /** @param mixed $cacheTtl The cache TTL */
     public function createPublicSuffixListStorage(string $cachePrefix = '', $cacheTtl = null): PublicSuffixListStorage
     {
         return new RulesStorage(
@@ -52,9 +51,7 @@ final readonly class SfStorageFactory implements ResourceUri, PublicSuffixListSt
         );
     }
 
-    /**
-     * @param mixed $cacheTtl The cache TTL
-     */
+    /** @param mixed $cacheTtl The cache TTL */
     public function createTopLevelDomainListStorage(string $cachePrefix = '', $cacheTtl = null): TopLevelDomainListStorage
     {
         return new TopLevelDomainsStorage(

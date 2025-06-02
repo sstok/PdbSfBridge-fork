@@ -36,7 +36,8 @@ final readonly class HttpUpdatedPdpManager implements PdpManager
     public function __construct(
         private PublicSuffixListStorage $rulesStorage,
         private TopLevelDomainListStorage $topLevelDomainsStorage,
-    ) {}
+    ) {
+    }
 
     public function getPublicSuffixList(): PublicSuffixList
     {
@@ -48,10 +49,8 @@ final readonly class HttpUpdatedPdpManager implements PdpManager
         return $this->topLevelDomainsStorage->get(ResourceUri::TOP_LEVEL_DOMAIN_LIST_URI);
     }
 
-    /**
-     * Creates a new instance of the PdpManager using the Factory.
-     */
-    public static function create(CacheInterface $cache, HttpClientInterface $client = null): self
+    /** Creates a new instance of the PdpManager using the Factory. */
+    public static function create(CacheInterface $cache, ?HttpClientInterface $client = null): self
     {
         $client ??= HttpClient::create();
         $factory = new SfStorageFactory($cache, $client);

@@ -30,7 +30,7 @@ class StaticPdpManager implements PdpManager
     public function __construct(
         private string $publicSuffixList,
         private string $topLevelDomainList,
-        CacheInterface $cache
+        CacheInterface $cache,
     ) {
         $this->publicSuffixListCache = new PublicSuffixListPsr16Cache($cache);
         $this->topLevelDomainListCache = new TopLevelDomainListPsr16Cache($cache);

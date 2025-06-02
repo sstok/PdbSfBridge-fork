@@ -22,7 +22,9 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final readonly class TopLevelDomainListSymfonyClient implements TopLevelDomainListClient
 {
-    public function __construct(private HttpClientInterface $client) {}
+    public function __construct(private HttpClientInterface $client)
+    {
+    }
 
     public function get(string $uri): TopLevelDomainList
     {

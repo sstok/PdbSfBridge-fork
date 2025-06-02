@@ -22,7 +22,9 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final readonly class PublicSuffixListSymfonyClient implements PublicSuffixListClient
 {
-    public function __construct(private HttpClientInterface $client) {}
+    public function __construct(private HttpClientInterface $client)
+    {
+    }
 
     public function get(string $uri): PublicSuffixList
     {
